@@ -13,9 +13,7 @@ export default function NewTask() {
     return (
         <Dialog>
             <DialogTrigger>
-                <Button type="submit">
-                    New Task
-                </Button>
+                New Task
             </DialogTrigger>
             <DialogContent>
                 <DialogHeader>

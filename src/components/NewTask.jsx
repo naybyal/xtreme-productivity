@@ -1,5 +1,6 @@
 'use client'
 import {Button} from "@/components/ui/button";
+import { CiCirclePlus } from "react-icons/ci";
 import {
     Dialog,
     DialogContent,
@@ -13,7 +14,7 @@ export default function NewTask() {
     return (
         <Dialog>
             <DialogTrigger>
-                New Task
+                <CiCirclePlus />
             </DialogTrigger>
             <DialogContent>
                 <DialogHeader>

@@ -1,6 +1,5 @@
 'use client'
-import {Button} from "@/components/ui/button";
-import { CiCirclePlus } from "react-icons/ci";
+import { RxPlus } from "react-icons/rx";
 import {
     Dialog,
     DialogContent,
@@ -13,8 +12,8 @@ import AddTask from "@/components/AddTask";
 export default function NewTask() {
     return (
         <Dialog>
-            <DialogTrigger>
-                <CiCirclePlus />
+            <DialogTrigger className="flex align-middle border-b-orange-50">
+                <RxPlus />
             </DialogTrigger>
             <DialogContent>
                 <DialogHeader>

@@ -1,11 +1,14 @@
-import NewTask from "@/components/NewTask";
+'use client'
 
+import NewTask from "@/components/NewTask";
+import RainNoise from "@/components/RainNoise";
 
 export default function Home() {
 
     return (
           <>
-              <NewTask class="m-5 p-3 bg-accent border-1"/>
+              <NewTask />
+              <RainNoise class="mt-5 space-y-2" />
           </>
     );
 }

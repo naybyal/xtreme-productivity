@@ -17,7 +17,7 @@ export default function AddTask() {
                 <form>
                     <div className="grid w-full items-center gap-5">
                         <div className="flex flex-col space-y-1.5">
-                            <Label htmlFor="name">Task Title</Label>
+                            <Label htmlFor="name">Task Name</Label>
                             <Input id="name" placeholder="Title of the task"/>
                         </div>
                         <div className="flex flex-col space-y-1.5">

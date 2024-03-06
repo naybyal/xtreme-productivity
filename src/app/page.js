@@ -7,15 +7,16 @@ import TaskTable from "@/components/TaskTable";
 export default function Home() {
 
     return (
-        <>
-            <div id='Header' className="grid grid-flow-col justify-between m-5">
-                <NewTask/>
+        <div className='page'>
+            <div id='Footer' className="grid grid-flow-col justify-between m-5">
                 <RainNoise/>
+                <NewTask/>
             </div>
             <div id="Main" className='flex m-5'>
-                <TaskTable />
+                <TaskTable/>
             </div>
-        </>
+
+        </div>
 
     );
 }

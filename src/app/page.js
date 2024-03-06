@@ -15,7 +15,6 @@ export default function Home() {
             <div id="Main" className='flex m-5'>
                 <TaskTable/>
             </div>
-
         </div>
 
     );

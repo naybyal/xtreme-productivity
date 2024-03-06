@@ -8,7 +8,7 @@ export default function Home() {
 
     return (
         <>
-            <div id='Header' className="grid grid-flow-col justify-between">
+            <div id='Header' className="grid grid-flow-col justify-between m-5">
                 <NewTask/>
                 <RainNoise/>
             </div>

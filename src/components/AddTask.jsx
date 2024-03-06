@@ -8,7 +8,7 @@ import {Button} from "@/components/ui/button";
 export default function AddTask() {
 
     return(
-        <Card className="w-[350px] m-auto border-0">
+        <Card className="w-[350px] sm:m-2 m-auto border-0">
             <CardHeader>
                 <CardTitle>New Task</CardTitle>
                 <CardDescription>Add a task to the list</CardDescription>

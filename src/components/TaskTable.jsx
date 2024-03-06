@@ -28,17 +28,18 @@ export default function TaskTable() {
             <TableCaption>Recent tasks.</TableCaption>
             <TableHeader>
                 <TableRow>
-                    <TableHead className="w-[100px]">Task</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead className="text-right">Date</TableHead>
+                    <TableHead>Date</TableHead>
+                    <TableHead>Task</TableHead>
+                    <TableHead className='text-right'>Status</TableHead>
+
                 </TableRow>
             </TableHeader>
             <TableBody>
                 {tasks.map((task) => (
                     <TableRow key={task.task}>
-                        <TableCell className="font-medium">{task.task}</TableCell>
-                        <TableCell>{task.status}</TableCell>
-                        <TableCell className="text-right">{task.date}</TableCell>
+                        <TableCell className="font-medium">{task.date}</TableCell>
+                        <TableCell>{task.task}</TableCell>
+                        <TableCell className="text-right">{task.status}</TableCell>
                     </TableRow>
                 ))}
             </TableBody>

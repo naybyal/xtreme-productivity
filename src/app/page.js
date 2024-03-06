@@ -7,7 +7,7 @@ import TaskTable from "@/components/TaskTable";
 export default function Home() {
 
     return (
-        <div className='page'>
+        <div className='page sm:h-dvh w-full h-42 overflow-y-scroll no-scrollbar'>
             <div id='Footer' className="grid grid-flow-col justify-between m-5">
                 <RainNoise/>
                 <NewTask/>

@@ -29,7 +29,7 @@ export default function TaskTable() {
             <TableHeader>
                 <TableRow>
                     <TableHead>Date</TableHead>
-                    <TableHead>Task</TableHead>
+                    <TableHead className='text-center'>Task</TableHead>
                     <TableHead className='text-right'>Status</TableHead>
 
                 </TableRow>

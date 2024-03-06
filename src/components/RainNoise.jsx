@@ -1,8 +1,10 @@
 'use client'
+
 import { useState } from "react";
 import Sound from "react-sound";
 import { MdOutlineMusicOff } from "react-icons/md";
 import { MdMusicNote } from "react-icons/md";
+
 export default function RainNoise() {
     const [isPlaying, setIsPlaying] = useState(false);
     const rainUrl = "rain.mp3";
@@ -18,6 +20,7 @@ export default function RainNoise() {
             <Sound
                 url={rainUrl}
                 playStatus={isPlaying ? Sound.status.PLAYING : Sound.status.STOPPED}
+                loop={true}
             />
         </>
     );

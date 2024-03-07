@@ -62,7 +62,7 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: white;
+  color: #F5F4F4;
 }
 
 .progress-container {

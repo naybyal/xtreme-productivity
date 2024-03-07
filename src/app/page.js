@@ -10,7 +10,7 @@ export default function Home() {
     return (
         <div className='page sm:h-dvh w-full h-42 overflow-y-scroll no-scrollbar'>
             <div id='Header' className="grid grid-flow-col justify-between m-5">
-                <RainNoise/>
+                <RainNoise />
                 <NewTask/>
             </div>
             <div id="Main" className='flex m-5'>

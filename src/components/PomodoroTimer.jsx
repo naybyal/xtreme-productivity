@@ -1,35 +1,129 @@
-import {Progress} from "@/components/ui/progress";
-import {Button} from "@/components/ui/button";
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from "@/components/ui/carousel"
+import React, { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { CiPause1 } from "react-icons/ci";
+import { CiStop1 } from "react-icons/ci";
+import { CiPlay1 } from "react-icons/ci";
 
 
 export default function PomodoroTimer() {
+    const [minutes, setMinutes] = useState(25);
+    const [seconds, setSeconds] = useState(0);
+    const [isRunning, setIsRunning] = useState(false);
+
+    useEffect(() => {
+        let intervalId;
+
+        if (isRunning) {
+            intervalId = setInterval(() => {
+                if (seconds === 0) {
+                    if (minutes === 0) {
+                        clearInterval(intervalId);
+                        // Timer is finished, you can implement what happens next
+                    } else {
+                        setMinutes((prev) => prev - 1);
+                        setSeconds(59);
+                    }
+                } else {
+                    setSeconds((prev) => prev - 1);
+                }
+            }, 1000);
+        }
+
+        return () => clearInterval(intervalId);
+    }, [isRunning, minutes, seconds]);
+
+    const startTimer = () => {
+        setIsRunning(true);
+    };
+
+    const stopTimer = () => {
+        setIsRunning(false);
+    };
+
+    const resetTimer = () => {
+        setIsRunning(false);
+        setMinutes(25);
+        setSeconds(0);
+    };
+
+    const [progress, setProgress] = useState(0);
+
+    useEffect(() => {
+        const totalSeconds = minutes * 60 + seconds;
+        const initialProgress = ((25 * 60 - totalSeconds) / (25 * 60)) * 100;
+        setProgress(initialProgress);
+
+        const interval = setInterval(() => {
+            setProgress((prevProgress) => {
+                if (prevProgress >= 100) {
+                    clearInterval(interval);
+                    return 100;
+                }
+                return prevProgress + (100 / (25 * 60)) * 0.1; // Increase progress by 10% every 100ms
+            });
+        }, 100);
+
+        return () => clearInterval(interval);
+    }, [25, minutes, seconds]);
+
+    const formatTime = (value) => {
+        return value < 10 ? "0" + value : value;
+    };
+
     return (
-        <>
-            {/*<Carousel>*/}
-            {/*    <CarouselContent>*/}
-            {/*        <CarouselItem></CarouselItem>*/}
-            {/*        <CarouselItem></CarouselItem>*/}
-            {/*        <CarouselItem></CarouselItem>*/}
-            {/*    </CarouselContent>*/}
-            {/*    <CarouselPrevious />*/}
-            {/*    <CarouselNext />*/}
-            {/*</Carousel>*/}
+        <div className="pomodoro-container">
+            <h1 className='mt-4 m-3'>Pomodoro</h1>
+            <div className="progress-container">
+                <svg className="progress-svg" viewBox="0 0 100 100">
+                    <circle
+                        className="progress-bar-background"
+                        cx="50"
+                        cy="50"
+                        r="45"
+                        fill="none"
+                    />
 
-            <h2 className="text-lg font-bold m-5">Pomodoro Timer</h2>
-            <Progress value={100}/>
-            <div className="flex justify-around m-5">
-                <Button className="">45 mins</Button>
-                <Button className="">60 mins</Button>
-                <Button className="">120 mins</Button>
+                    <circle
+                        className="progress-bar"
+                        cx="50"
+                        cy="50"
+                        r="45"
+                        fill="none"
+                        strokeDasharray="283"
+                        strokeDashoffset={283 - (283 * progress) / 100}
+                    />
+
+                    <text
+                        x="50"
+                        y="50"
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                        fill="white"
+                        fontSize="20"
+                    >
+                        {formatTime(minutes)}:{formatTime(seconds)}
+                    </text>
+                </svg>
             </div>
-
-        </>
+            <div className='m-3'>
+                <Button
+                    className="bg-card"
+                    onClick={startTimer}
+                    disabled={isRunning}
+                >
+                    <CiPlay1 />
+                </Button>
+                <Button
+                    className="bg-card"
+                    onClick={stopTimer}
+                    disabled={!isRunning}
+                >
+                    <CiPause1 />
+                </Button>
+                <Button className="bg-card" onClick={resetTimer}>
+                    <CiStop1 />
+                </Button>
+            </div>
+        </div>
     );
 }

@@ -64,7 +64,7 @@ export default function TaskTable() {
     };
 
     return (
-        <ScrollArea className='w-full h-[15em]'>
+        <ScrollArea className='w-full h-[20em]'>
             <Table>
                 <TableCaption>Recent tasks.</TableCaption>
                 <TableHeader>

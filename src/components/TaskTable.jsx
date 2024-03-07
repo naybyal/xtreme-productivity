@@ -17,6 +17,8 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+import { ScrollArea } from "@/components/ui/scroll-area"
+
 let initID = 0;
 
 const initialTasks = [
@@ -29,6 +31,18 @@ const initialTasks = [
     {
         id: 2,
         task: "Xtreme Productivity PWA",
+        status: "Incomplete",
+        date: "Today",
+    },
+    {
+        id: 3,
+        task: "Bambrush Website",
+        status: "Incomplete",
+        date: "Today",
+    },
+    {
+        id: 4,
+        task: "solidServe JIRA Setup",
         status: "Incomplete",
         date: "Today",
     }
@@ -50,33 +64,36 @@ export default function TaskTable() {
     };
 
     return (
-        <Table>
-            <TableCaption>Recent tasks.</TableCaption>
-            <TableHeader>
-                <TableRow>
-                    <TableHead>TBC</TableHead>
-                    <TableHead>Task</TableHead>
-                    <TableHead className='text-right'>Status</TableHead>
-                </TableRow>
-            </TableHeader>
-            <TableBody>
-                {tasks.map((task) => (
-                    <TableRow key={task.id}>
-                        <TableCell className="font-medium">{task.date}</TableCell>
-                        <TableCell className={task.status === 'Complete' ? 'completed-task' : ''}>{task.task}</TableCell>
-                        <TableCell className="text-right">
-                            <DropdownMenu>
-                                <DropdownMenuTrigger>{task.status === 'Complete' ? 'Completed' : 'In progress'}</DropdownMenuTrigger>
-                                <DropdownMenuContent>
-                                    <DropdownMenuItem onClick={() => toggleStatus(task.id)}>
-                                        {task.status === 'Complete' ? 'Mark as Incomplete' : 'Mark as Complete'}
-                                    </DropdownMenuItem>
-                                </DropdownMenuContent>
-                            </DropdownMenu>
-                        </TableCell>
+        <ScrollArea className='w-full h-[15em]'>
+            <Table>
+                <TableCaption>Recent tasks.</TableCaption>
+                <TableHeader>
+                    <TableRow>
+                        <TableHead>TBC</TableHead>
+                        <TableHead>Task</TableHead>
+                        <TableHead className='text-right'>Status</TableHead>
                     </TableRow>
-                ))}
-            </TableBody>
-        </Table>
+                </TableHeader>
+                <TableBody>
+                    {tasks.map((task) => (
+                        <TableRow key={task.id}>
+                            <TableCell className="font-medium">{task.date}</TableCell>
+                            <TableCell className={task.status === 'Complete' ? 'completed-task' : ''}>{task.task}</TableCell>
+                            <TableCell className="text-right">
+                                <DropdownMenu>
+                                    <DropdownMenuTrigger>{task.status === 'Complete' ? 'Completed' : 'In progress'}</DropdownMenuTrigger>
+                                    <DropdownMenuContent>
+                                        <DropdownMenuItem onClick={() => toggleStatus(task.id)}>
+                                            {task.status === 'Complete' ? 'Mark as Incomplete' : 'Mark as Complete'}
+                                        </DropdownMenuItem>
+                                    </DropdownMenuContent>
+                                </DropdownMenu>
+                            </TableCell>
+                        </TableRow>
+                    ))}
+                </TableBody>
+            </Table>
+        </ScrollArea>
+
     );
 }

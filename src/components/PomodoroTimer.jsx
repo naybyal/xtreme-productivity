@@ -73,7 +73,7 @@ export default function PomodoroTimer() {
     return (
         <div className="pomodoro-container">
             {/*<h1 className='mt-4 m-3 text-secondary-foreground'>Pomodoro</h1>*/}
-            <div className="progress-container">
+            <div className="mt-1 progress-container">
                 <svg className="progress-svg" viewBox="0 0 100 100">
                     <circle
                         className="progress-bar-background"

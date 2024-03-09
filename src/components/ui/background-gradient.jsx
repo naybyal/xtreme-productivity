@@ -34,7 +34,7 @@ export default function BackgroundGradient({
                         : undefined
                 }
                 className={cn(
-                    "absolute inset-0 rounded-3xl z-[1] opacity-60 ",
+                    "absolute inset-0 rounded-3xl z-[1] opacity-50 ",
                     "bg-gradient-to-r from-red-600 via-red-0 to-red-0",
                     "filter blur-xl" // Reduce the shadow
                 )}

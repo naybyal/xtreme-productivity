@@ -74,6 +74,7 @@ export default function PomodoroTimer() {
                         fill="none"
                         strokeDasharray="283"
                         strokeDashoffset={283 - (283 * progress) / 100}
+                        transform="rotate(-90, 50, 50)" // Adjust the rotation to start at the top
                     />
 
                     <text
@@ -88,22 +89,22 @@ export default function PomodoroTimer() {
                     </text>
                 </svg>
 
-                <div className="m-3 sm: hover: bg-card">
+                <div className="m-3">
                     <Button
-                        className="bg-card"
+                        className="bg-card hover:bg-opacity-90"
                         onClick={startTimer}
                         disabled={isRunning}
                     >
                         <CiPlay1 />
                     </Button>
                     <Button
-                        className="bg-card"
+                        className="bg-card hover:bg-opacity-90"
                         onClick={stopTimer}
                         disabled={!isRunning}
                     >
                         <CiPause1 />
                     </Button>
-                    <Button className="bg-card" onClick={resetTimer}>
+                    <Button className="bg-card hover:bg-opacity-90" onClick={resetTimer}>
                         <CiStop1 />
                     </Button>
                 </div>

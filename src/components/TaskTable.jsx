@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import { ScrollArea } from "@/components/ui/scroll-area"
+import BackgroundGradient from "@/components/ui/background-gradient";
 
 let initID = 0;
 
@@ -64,36 +65,40 @@ export default function TaskTable() {
     };
 
     return (
-        <ScrollArea className='w-full h-[20em]'>
-            <Table>
-                <TableCaption>Recent tasks.</TableCaption>
-                <TableHeader>
-                    <TableRow>
-                        <TableHead>TBC</TableHead>
-                        <TableHead>Task</TableHead>
-                        <TableHead className='text-right'>Status</TableHead>
-                    </TableRow>
-                </TableHeader>
-                <TableBody>
-                    {tasks.map((task) => (
-                        <TableRow key={task.id}>
-                            <TableCell className="font-medium">{task.date}</TableCell>
-                            <TableCell className={task.status === 'Complete' ? 'completed-task' : ''}>{task.task}</TableCell>
-                            <TableCell className="text-right">
-                                <DropdownMenu>
-                                    <DropdownMenuTrigger>{task.status === 'Complete' ? 'Completed' : 'In progress'}</DropdownMenuTrigger>
-                                    <DropdownMenuContent>
-                                        <DropdownMenuItem onClick={() => toggleStatus(task.id)}>
-                                            {task.status === 'Complete' ? 'Mark as Incomplete' : 'Mark as Complete'}
-                                        </DropdownMenuItem>
-                                    </DropdownMenuContent>
-                                </DropdownMenu>
-                            </TableCell>
-                        </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
-        </ScrollArea>
+        <div className='w-full mt-5 mb-5'>
+            <BackgroundGradient className="rounded-[20px] w-full p-5 bg-background dark:bg-zinc-900">
+                <ScrollArea className='w-full h-[20em]'>
+                    <Table>
+                        <TableCaption>Recent tasks.</TableCaption>
+                        <TableHeader>
+                            <TableRow>
+                                <TableHead>TBC</TableHead>
+                                <TableHead>Task</TableHead>
+                                <TableHead className='text-right'>Status</TableHead>
+                            </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                            {tasks.map((task) => (
+                                <TableRow key={task.id}>
+                                    <TableCell className="font-medium">{task.date}</TableCell>
+                                    <TableCell className={task.status === 'Complete' ? 'completed-task' : ''}>{task.task}</TableCell>
+                                    <TableCell className="text-right">
+                                        <DropdownMenu>
+                                            <DropdownMenuTrigger>{task.status === 'Complete' ? 'Completed' : 'In progress'}</DropdownMenuTrigger>
+                                            <DropdownMenuContent>
+                                                <DropdownMenuItem onClick={() => toggleStatus(task.id)}>
+                                                    {task.status === 'Complete' ? 'Mark as Incomplete' : 'Mark as Complete'}
+                                                </DropdownMenuItem>
+                                            </DropdownMenuContent>
+                                        </DropdownMenu>
+                                    </TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </ScrollArea>
+            </BackgroundGradient>
+        </div>
 
     );
 }

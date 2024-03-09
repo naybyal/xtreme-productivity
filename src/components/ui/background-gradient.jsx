@@ -14,6 +14,7 @@ export default function BackgroundGradient({
         },
         animate: {
             backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+            backgroundSize: ["400% 400%", "250% 250%", "400% 400%"], // Adjust background size for pulsating effect
         },
     };
 
@@ -26,19 +27,16 @@ export default function BackgroundGradient({
                 transition={
                     animate
                         ? {
-                            duration: 5,
+                            duration: 8, // Adjust duration for slower animation
                             repeat: Infinity,
                             repeatType: "reverse",
                         }
                         : undefined
                 }
-                style={{
-                    backgroundSize: animate ? "400% 400%" : undefined,
-                }}
                 className={cn(
-                    "absolute inset-0 rounded-3xl z-[1] opacity-60 group-hover:opacity-100",
-                    "bg-gradient-to-r from-red-600 via-red-550 to-red-600",
-                    "filter blur-sm" // Reduce the shadow
+                    "absolute inset-0 rounded-3xl z-[1] opacity-60 ",
+                    "bg-gradient-to-r from-red-600 via-red-0 to-red-0",
+                    "filter blur-xl" // Reduce the shadow
                 )}
             />
             <motion.div
@@ -48,19 +46,16 @@ export default function BackgroundGradient({
                 transition={
                     animate
                         ? {
-                            duration: 5,
+                            duration: 0.1, // Adjust duration for slower animation
                             repeat: Infinity,
                             repeatType: "reverse",
                         }
                         : undefined
                 }
-                style={{
-                    backgroundSize: animate ? "400% 400%" : undefined,
-                }}
                 className={cn(
                     "absolute inset-0 rounded-3xl z-[1]",
-                    "bg-gradient-to-r from-red-600 via-red-550 to-red-600",
-                    "filter blur-md" // Reduce the shadow
+                    "bg-gradient-to-r from-red-5 via-red-0 to-red-0",
+                    "filter blur-xl" // Reduce the shadow
                 )}
             />
 

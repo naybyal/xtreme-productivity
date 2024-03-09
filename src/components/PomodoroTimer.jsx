@@ -56,7 +56,7 @@ export default function PomodoroTimer() {
 
     return (
         <div className="pomodoro-container">
-            <BackgroundGradient className="flex justify-center items-center rounded-[22px] w-full p-4 sm:p-10 bg-background dark:bg-zinc-900">
+            <BackgroundGradient className="flex justify-center items-center rounded-[22px] w-full p-4 sm:p-10 bg-background">
                 <svg className="progress-svg" viewBox="0 0 100 100">
                     <circle
                         className="progress-bar-background"

@@ -88,7 +88,7 @@ export default function PomodoroTimer() {
                     </text>
                 </svg>
 
-                <div className="m-3">
+                <div className="m-3 sm: hover: bg-card">
                     <Button
                         className="bg-card"
                         onClick={startTimer}

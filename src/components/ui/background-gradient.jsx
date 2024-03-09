@@ -27,7 +27,7 @@ export default function BackgroundGradient({
                 transition={
                     animate
                         ? {
-                            duration: 8, // Adjust duration for slower animation
+                            duration: 0.5, // Adjust duration for slower animation
                             repeat: Infinity,
                             repeatType: "reverse",
                         }
@@ -46,7 +46,7 @@ export default function BackgroundGradient({
                 transition={
                     animate
                         ? {
-                            duration: 0.1, // Adjust duration for slower animation
+                            duration: 0.5, // Adjust duration for slower animation
                             repeat: Infinity,
                             repeatType: "reverse",
                         }

@@ -37,11 +37,6 @@ html {
     --ring: 0 72.2% 50.6%;
   }
 }
-/*html,*/
-/*body,*/
-/*.page{*/
-/*  @apply h-full*/
-/*}*/
 
 @layer base {
   * {

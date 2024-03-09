@@ -66,7 +66,7 @@ export default function TaskTable() {
     };
 
     return (
-        <div className='w-full mt-2 mb-2'>
+        <div className='w-full mt-3.5 mb-2'>
 
                 <ScrollArea className='w-full h-[20em]'>
                     <Table>

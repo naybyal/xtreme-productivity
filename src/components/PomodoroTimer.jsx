@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { CiPause1 } from "react-icons/ci";
 import { CiStop1 } from "react-icons/ci";
 import { CiPlay1 } from "react-icons/ci";
+import BackgroundGradient from "@/components/ui/background-gradient";
 
 
 export default function PomodoroTimer() {
@@ -72,58 +73,59 @@ export default function PomodoroTimer() {
 
     return (
         <div className="pomodoro-container">
-            {/*<h1 className='mt-4 m-3 text-secondary-foreground'>Pomodoro</h1>*/}
-            <div className="mt-1 progress-container">
-                <svg className="progress-svg" viewBox="0 0 100 100">
-                    <circle
-                        className="progress-bar-background"
-                        cx="50"
-                        cy="50"
-                        r="45"
-                        fill="none"
-                    />
+            <BackgroundGradient className="rounded-[22px] w-full p-4 sm:p-10 bg-background dark:bg-zinc-900">
+                <div className="mt-1 progress-container">
+                    <svg className="progress-svg" viewBox="0 0 100 100">
+                        <circle
+                            className="progress-bar-background"
+                            cx="50"
+                            cy="50"
+                            r="45"
+                            fill="none"
+                        />
 
-                    <circle
-                        className="progress-bar"
-                        cx="50"
-                        cy="50"
-                        r="45"
-                        fill="none"
-                        strokeDasharray="283"
-                        strokeDashoffset={283 - (283 * progress) / 100}
-                    />
+                        <circle
+                            className="progress-bar"
+                            cx="50"
+                            cy="50"
+                            r="45"
+                            fill="none"
+                            strokeDasharray="283"
+                            strokeDashoffset={283 - (283 * progress) / 100}
+                        />
 
-                    <text
-                        x="50"
-                        y="50"
-                        textAnchor="middle"
-                        dominantBaseline="middle"
-                        fill="white"
-                        fontSize="20"
+                        <text
+                            x="50"
+                            y="50"
+                            textAnchor="middle"
+                            dominantBaseline="middle"
+                            fill="white"
+                            fontSize="20"
+                        >
+                            {formatTime(minutes)}:{formatTime(seconds)}
+                        </text>
+                    </svg>
+                </div>
+                <div className='m-3'>
+                    <Button
+                        className="bg-card"
+                        onClick={startTimer}
+                        disabled={isRunning}
                     >
-                        {formatTime(minutes)}:{formatTime(seconds)}
-                    </text>
-                </svg>
-            </div>
-            <div className='m-3'>
-                <Button
-                    className="bg-card"
-                    onClick={startTimer}
-                    disabled={isRunning}
-                >
-                    <CiPlay1 />
-                </Button>
-                <Button
-                    className="bg-card"
-                    onClick={stopTimer}
-                    disabled={!isRunning}
-                >
-                    <CiPause1 />
-                </Button>
-                <Button className="bg-card" onClick={resetTimer}>
-                    <CiStop1 />
-                </Button>
-            </div>
+                        <CiPlay1 />
+                    </Button>
+                    <Button
+                        className="bg-card"
+                        onClick={stopTimer}
+                        disabled={!isRunning}
+                    >
+                        <CiPause1 />
+                    </Button>
+                    <Button className="bg-card" onClick={resetTimer}>
+                        <CiStop1 />
+                    </Button>
+                </div>
+            </BackgroundGradient>
         </div>
     );
 }

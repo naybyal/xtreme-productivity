@@ -20,6 +20,7 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area"
 import BackgroundGradient from "@/components/ui/background-gradient";
 
+
 let initID = 0;
 
 const initialTasks = [
@@ -65,8 +66,8 @@ export default function TaskTable() {
     };
 
     return (
-        <div className='w-full mt-5 mb-5'>
-            <BackgroundGradient className="rounded-[20px] w-full p-5 bg-background dark:bg-zinc-900">
+        <div className='w-full mt-2 mb-2'>
+
                 <ScrollArea className='w-full h-[20em]'>
                     <Table>
                         <TableCaption>Recent tasks.</TableCaption>
@@ -97,7 +98,7 @@ export default function TaskTable() {
                         </TableBody>
                     </Table>
                 </ScrollArea>
-            </BackgroundGradient>
+
         </div>
 
     );

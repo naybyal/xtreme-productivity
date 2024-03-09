@@ -27,7 +27,7 @@ export default function BackgroundGradient({
                 transition={
                     animate
                         ? {
-                            duration: 0.5, // Adjust duration for slower animation
+                            duration: 5, // Adjust duration for slower animation
                             repeat: Infinity,
                             repeatType: "reverse",
                         }
@@ -46,7 +46,7 @@ export default function BackgroundGradient({
                 transition={
                     animate
                         ? {
-                            duration: 0.5, // Adjust duration for slower animation
+                            duration: 5, // Adjust duration for slower animation
                             repeat: Infinity,
                             repeatType: "reverse",
                         }
@@ -54,7 +54,7 @@ export default function BackgroundGradient({
                 }
                 className={cn(
                     "absolute inset-0 rounded-3xl z-[1]",
-                    "bg-gradient-to-r from-red-5 via-red-0 to-red-600",
+                    "bg-gradient-to-r from-red-0 via-red-0 to-red-600",
                     "filter blur-xl" // Reduce the shadow
                 )}
             />

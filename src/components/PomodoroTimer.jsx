@@ -4,14 +4,14 @@ import { CiPause1, CiPlay1, CiStop1 } from "react-icons/ci";
 import BackgroundGradient from "@/components/ui/background-gradient";
 
 export default function PomodoroTimer() {
-    const [minutes, setMinutes] = useState(25);
+    const [minutes, setMinutes] = useState(45);
     const [seconds, setSeconds] = useState(0);
     const [isRunning, setIsRunning] = useState(false);
     const [progress, setProgress] = useState(0);
 
     useEffect(() => {
         const totalSeconds = minutes * 60 + seconds;
-        const initialProgress = ((25 * 60 - totalSeconds) / (25 * 60)) * 100;
+        const initialProgress = ((45 * 60 - totalSeconds) / (45 * 60)) * 100;
         setProgress(initialProgress);
 
         let intervalId;
@@ -46,7 +46,7 @@ export default function PomodoroTimer() {
 
     const resetTimer = () => {
         setIsRunning(false);
-        setMinutes(25);
+        setMinutes(45);
         setSeconds(0);
     };
 
